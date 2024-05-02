@@ -47,6 +47,16 @@
           console.error('Error fetching latest release:', error);
         });
     }
+
+    var currentHost = window.location.host;
+    if (currentHost.includes(":")){
+      currentHost = currentHost.substring(0, currentHost.indexOf(":"));
+    }
+    // load clip from twitch
+    fetch('https://clips.twitch.tv/embed?clip=SmilingFunnyPenguinImGlitch-lRIAyq8JpvDs18gw&parent=' + currentHost)
+      .then(data => {
+        console.log('got twitch data:', data);
+      })
   </script>
 </head>
 
@@ -115,7 +125,7 @@
       </div>
       <div class="reviewCard">
         <h2>Spart Zeit</h2>
-        <i>"Es <a href="https://clips.twitch.tv/ColdCorrectGaurBrokeBack-ZbP2s4BA5gyd1RRe">spart</a> wirklich viel Zeit"</i> - Loru
+        <i>"Es <a href="https://clips.twitch.tv/ColdCorrectGaurBrokeBack-ZbP2s4BA5gyd1RRe">spart</a> wirklich viel Zeit."</i> - Loru
       </div>
       <div class="reviewCard">
         <h2>WOW</h2>
