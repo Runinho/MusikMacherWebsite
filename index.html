@@ -14,6 +14,7 @@
   <meta property="og:image" content="">
   <meta property="og:image:alt" content="">
   <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
+  <meta name="google-site-verification" content="4AJhxBCg89419LhDZMmP0yT8ktLWfHePZg46xonnZFA" />
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -47,16 +48,6 @@
           console.error('Error fetching latest release:', error);
         });
     }
-
-    var currentHost = window.location.host;
-    if (currentHost.includes(":")){
-      currentHost = currentHost.substring(0, currentHost.indexOf(":"));
-    }
-    // load clip from twitch
-    fetch('https://clips.twitch.tv/embed?clip=SmilingFunnyPenguinImGlitch-lRIAyq8JpvDs18gw&parent=' + currentHost)
-      .then(data => {
-        console.log('got twitch data:', data);
-      })
   </script>
 </head>
 
