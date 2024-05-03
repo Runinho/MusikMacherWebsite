@@ -177,6 +177,17 @@ body {
   font-size: 30px;
 }
 
+.header p{
+  float:left;
+  margin: 0px;
+  padding: 0px;
+}
+
+.byRuninho{
+  color: rgba(193, 193, 193, 0.87);
+  font-size: 14px;
+}
+
 .centerContainer{
   display: flex;
   flex-direction: column;
@@ -217,7 +228,7 @@ body {
   width: 50px;
   height: 50px;
   padding: 15px;
-  background-color: #3ba461;
+  background: #3ba461;
   fill: #ffffff;
   border-radius: 10px;
 }
@@ -231,6 +242,13 @@ body {
   width: 100%;
   margin: 20px 20px 20px 20px;
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+#versionID{
+  font-size: 12px;
+  padding: 0px;
+  margin-top: 5px;
+  color: #e9f6da;
 }
 
 h1{
