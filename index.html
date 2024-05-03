@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
 <head>
   <meta charset="utf-8">
@@ -63,15 +63,17 @@
           return response.json();
         })
         .then(data => {
-          console.log('Latest release version:', data);
+          var download_count = "unbekannt";
           for (const asset of data.assets) {
             if(asset.name.endsWith("win-x64.zip")){
               console.log('got download from github ', asset.browser_download_url);
               downloadURL = asset.browser_download_url;
+              download_count = asset.download_count;
             }
           }
           var timeAgo = timeSince(new Date(data.created_at))
           document.getElementById("versionID").innerHTML = "version " + data.tag_name + ", ver&ouml;ffentlicht vor " + timeAgo;
+          document.getElementById("downloadStats").innerText = download_count;
         })
         .catch(error => {
           console.error('Error fetching latest release:', error);
@@ -163,14 +165,16 @@
     </div>
   </div>
   <div class="centerContainer tutorial">
+    <h1>Tutorial</h1>
     <div class="centerContent">
-      <h1>Tutorial</h1>
       <iframe src="https://clips.twitch.tv/embed?clip=SmilingFunnyPenguinImGlitch-lRIAyq8JpvDs18gw&parent=runinho.github.io" frameborder="0" allowfullscreen="true" scrolling="no" height="400" width="100%"></iframe>
     </div>
-     </div>
+  </div>
   <div class="centerContainer openSource reviews">
     <h1>Open Source</h1>
-    <p>Du kannst dir den vollständigen Programmcode auf <a href="https://github.com/Runinho/MusikMacher/">GitHub</a> anschauen und gerne auch neue Funktionen beisteuern :).</p>
+    <div class="centerContent">
+    <p>Du kannst dir den vollständigen Programmcode auf <a href="https://github.com/Runinho/MusikMacher/">GitHub</a> anschauen und gerne auch neue Funktionen beisteuern :). Wusstest du schon, dass die aktuelle Version schon <b><span id="downloadStats">1</span></b> Mal heruntergeladen wurde?</p>
+    </div>
   </div>
 
   <div class="footer">
