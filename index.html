@@ -77,10 +77,19 @@
           console.error('Error fetching latest release:', error);
         });
     }
-    getDownloadInfo();
   function startDownload() {
     window.location.href = downloadURL;
   }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    getDownloadInfo();
+    var hostname = window.location.host;
+    if(hostname.indexOf(":") != -1){
+      hostname = hostname.substr(0, hostname.indexOf(":"))
+    }
+    var url = "https://clips.twitch.tv/embed?clip=SmilingFunnyPenguinImGlitch-lRIAyq8JpvDs18gw&parent=" + hostname;
+    document.getElementById("twitchClip").src = url;
+  });
   </script>
 </head>
 
@@ -165,9 +174,9 @@
   <div class="centerContainer tutorial">
     <div class="centerContent">
       <h1>Tutorial</h1>
-      <iframe src="https://clips.twitch.tv/embed?clip=SmilingFunnyPenguinImGlitch-lRIAyq8JpvDs18gw&parent=runinho.github.io" frameborder="0" allowfullscreen="true" scrolling="no" height="400" width="100%"></iframe>
+      <iframe id="twitchClip" src="" frameborder="0" allowfullscreen="true" scrolling="no" height="400" width="100%"></iframe>
     </div>
-     </div>
+  </div>
   <div class="centerContainer openSource reviews">
     <h1>Open Source</h1>
     <p>Du kannst dir den vollständigen Programmcode auf <a href="https://github.com/Runinho/MusikMacher/">GitHub</a> anschauen und gerne auch neue Funktionen beisteuern :).</p>
